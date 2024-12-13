@@ -11,14 +11,11 @@
     margin: 0;
     scroll-behavior: smooth;
     background-color: var(--white);
+    font-family: "Nunito", sans-serif;
 }
 
 a {
     text-decoration: none;
-}
-
-.body {
-    font-family: "Nunito", sans-serif;
 }
 
 h1, h2, h3 {
@@ -35,7 +32,7 @@ nav {
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 button {
@@ -47,4 +44,39 @@ button {
     border-radius: 4px;
     margin: 0 8px;
     cursor: pointer;
+}
+
+.book-card {
+    width: 324px;
+    padding: 12px;
+    border: 0.5px solid var(--dark-grey);
+    border-radius: 4px;
+}
+
+.img-container img {
+    max-width: 300px;
+}
+
+.img-container {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.title-likes, .price-box, .comments-users{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.likes {
+    display: flex;
+    align-items: center;
+}
+
+#price{
+    background-color: var(--yellow);
+    padding: 4px;
+    border-radius: 4px;
 }
