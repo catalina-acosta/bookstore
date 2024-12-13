@@ -12,6 +12,7 @@ function renderBookcards() {
         let currentBookComments = books[indexBook].comments;
         let commentsUsersRef = document.getElementById("commentsUsers");
         commentsUsersRef.innerHTML = "";
+        commentsUsersRef.setAttribute('id', indexBook)
 
         for (let indexComment = 0; indexComment < currentBookComments.length; indexComment++) {
             let bookComment = currentBookComments[indexComment].text;
@@ -55,21 +56,22 @@ function getBookTemplate(indexBook) {
             `
 }
 
-function renderComments(indexBook){
-    let currentBookComments = indexBook.comments;
-    let commentsUsersRef = document.getElementById("commentsUsers");
-    commentsUsersRef.innerHTML = "";
+// function renderComments(indexBook){
+//     let currentBookComments = indexBook.comments;
+//     let commentsUsersRef = document.getElementById("commentsUsers");
+//     commentsUsersRef.innerHTML = "";
 
-    for (let indexComment = 0; indexComment < currentBookComments.length; indexComment++) {
-        let bookComment = currentBookComments[indexComment].text;
-        let userComment = currentBookComments[indexComment].username;
-        commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
-    }
-}
+//     for (let indexComment = 0; indexComment < currentBookComments.length; indexComment++) {
+//         let bookComment = currentBookComments[indexComment].text;
+//         let userComment = currentBookComments[indexComment].username;
+//         commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
+//     }
+// }
 
 function getCommentsTemplate(bookComment, userComment) {
-    return `
-            <p>${userComment}</p>
-            <p>${bookComment}</p>
+    return `<div class="comments-container">
+                <div class="user-div">${userComment}</div>
+                <div class="comment-div">${bookComment}</div>
+            </div>
     `
 }

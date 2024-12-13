@@ -49,6 +49,7 @@ button {
 #content{
     margin: 48px 0;
     display: flex; 
+    justify-content: space-evenly;
     flex-wrap: wrap;   
     gap: 24px;
 }
@@ -98,4 +99,19 @@ button {
 .comments h3 {
     margin-top: 18px;
     border-top: 1px solid var(--dark-grey);
+}
+
+.comments-users {
+    flex-direction: column;
+}
+
+.comments-container {
+    display: flex;
+    font-size: 14px;
+    text-align: justify;
+    width: 100%;
+}
+
+.user-div {
+    width: 50%;
 }
