@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstore</title>
-    <script src="./script.js"></script>
-    <script src="./db.js"></script>
-    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <script src="./db.js"></script>
 </head>
 <body>
     <div class="body-box">
@@ -17,11 +17,34 @@
             <button>All books</button>
             <button>Favorites</button>
         </nav>
-    </div>
-    <h1>Bookstore</h1>
-    <div id="content">
-        <div class="book-card">
-
+        <h1>Bookstore</h1>
+        <div id="content">
+            <div class="book-card">
+                <div class="img-container">
+                    <img src="./assets/img/book_1.jpg" alt="">
+                </div>
+                <div class="book-content">
+                    <div class="title-likes">
+                        <div id="title">some title</div>
+                        <div class="likes">
+                            <p>1000</p>
+                            <p>❤️</p>
+                        </div>
+                    </div>
+                    <div id="author">Kafka</div>
+                    <div class="details">
+                        <div id="genre">fanstasy</div>
+                        <div id="price">20,00€</div>
+                    </div>
+                    <div class="comments">
+                        <h3>Comments</h3>
+                        <div class="comments-users">
+                            <div id="user">reader1</div>
+                            <div id="commentFromUser">i loved it</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
