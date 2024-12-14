@@ -47,8 +47,10 @@ function getBookTemplate(indexBook) {
                     <div class="comments">
                         <h3>Comments</h3>
                         <div class="comments-users" id="commentsUsers">
-                            <div id="user">reader1</div>
-                            <div id="commentFromUser"></div>
+                        </div>
+                        <div id="addComment">
+                            <input type="text" id="newComment" placeholder="enter new comment" >
+                            <button id="AddCommentBtn" onclick="addComment(${indexBook})">add comment</button>
                         </div>
                     </div>
                 </div>
@@ -67,6 +69,14 @@ function getBookTemplate(indexBook) {
 //         commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
 //     }
 // }
+
+function addComment(indexBook) {
+    let newCommentRef = document.getElementById("newComment");
+    let newComment = newCommentRef.value;
+    let currentBook = books[indexBook];
+    currentBook.comments.push(`{"username": "Cata", "text": "${newComment}"}`);
+    renderBookcards();
+}
 
 function getCommentsTemplate(bookComment, userComment) {
     return `<div class="comments-container">
