@@ -61,6 +61,7 @@ function addBookToFavorites(indexBook) {
 
 function removeFromFavorites(indexBook) {
     favoriteBooks.splice(indexBook, 1);
+    renderFavoriteBookcards();
 }
 
 function renderFavoriteBookcards() {
@@ -68,9 +69,21 @@ function renderFavoriteBookcards() {
     let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
     for (let indexBook = 0; indexBook < favoriteBooks.length; indexBook++) {
-        contentRef.innerHTML += getBookTemplate(indexBook);
-        renderComments(indexBook);
+        contentRef.innerHTML += getFavoriteBookTemplate(indexBook);
+        renderFavoriteComments(indexBook);
     }
+}
+
+function renderFavoriteComments(indexBook) {
+    let currentBookComments = favoriteBooks[indexBook].comments;
+        let commentsUsersRef = document.getElementById("commentsUsers");
+        commentsUsersRef.innerHTML = "";
+        commentsUsersRef.setAttribute('id', indexBook);
+        for (let indexComment = 0; indexComment < currentBookComments.length; indexComment++) {
+            let bookComment = currentBookComments[indexComment].text;
+            let userComment = currentBookComments[indexComment].username;
+            commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
+        }
 }
 
 // function getErrorMessageTemplate(){
@@ -84,17 +97,13 @@ function renderFavoriteBookcards() {
 
 // TODO'S 
 
-// implement Likes counter 
-// make heart icon clickable and add or substract like
+// implement local storage
 
-// push liked books into an empty array
-// make renderFavoriteBooks() 
-// make button favorites clickable and call the favorites function
 
 // clean code
 // transfer templates into different file
 // fix if else condition add empty comments
 
+// fix errror Template function
 
-// respo
-// make navbar responsive 
+

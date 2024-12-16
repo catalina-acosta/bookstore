@@ -14,14 +14,14 @@
     <script src="https://kit.fontawesome.com/c76ec36ccc.js" crossorigin="anonymous"></script>
 </head>
 <body onload="init()">
+    <nav>
+        <h1>Bookstore</h1>
+        <div class="button-box">
+            <button onclick="renderBookcards()">All books</button>
+            <button onclick="renderFavoriteBookcards()">Favorites</button>
+        </div>
+    </nav>
     <div class="body-box">
-        <nav>
-            <h1>Bookstore</h1>
-            <div class="button-box">
-                <button onclick="renderBookcards()">All books</button>
-                <button onclick="renderFavoriteBookcards()">Favorites</button>
-            </div>
-        </nav>
         <div id="content">
         </div>
     </div>
