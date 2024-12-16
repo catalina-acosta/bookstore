@@ -38,21 +38,21 @@ function addComment(indexBook) {
 }
 
 
-function addLike(indexBook) {
-    let heartRef = document.getElementById(`heart${indexBook}`);
-    heartRef.classList.toggle("liked");
+function addLike(indexBook) {    
     let likesRef = document.getElementById(`likesCounter${indexBook}`);
+    let heartRef = document.getElementById(`heart${indexBook}`);
 
-    if (heartRef.classList[1] == "liked") {
-        books[indexBook].likes += 1; 
-        likesRef.innerHTML = getLikesTemplate(indexBook);
-        addBookToFavorites(indexBook);
-    } else {
+    if (books[indexBook].favorite == true) {
         books[indexBook].likes -= 1;
         likesRef.innerHTML = getLikesTemplate(indexBook);
         removeFromFavorites(indexBook);
+        heartRef.classList.toggle("liked");
+    } else {
+        books[indexBook].favorite = true;
+        books[indexBook].likes += 1; 
+        likesRef.innerHTML = getLikesTemplate(indexBook);
+        addBookToFavorites(indexBook);
     }
-
 }
 
 function addBookToFavorites(indexBook) {
@@ -61,7 +61,6 @@ function addBookToFavorites(indexBook) {
 
 function removeFromFavorites(indexBook) {
     favoriteBooks.splice(indexBook, 1);
-    renderFavoriteBookcards();
 }
 
 function renderFavoriteBookcards() {
@@ -69,10 +68,22 @@ function renderFavoriteBookcards() {
     let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
     for (let indexBook = 0; indexBook < favoriteBooks.length; indexBook++) {
-        contentRef.innerHTML += getFavoriteBookTemplate(indexBook);
-        renderFavoriteComments(indexBook);
+        if (books[indexBook].favorite == true) {
+            contentRef.innerHTML += getFavoriteBookTemplate(indexBook);
+            renderFavoriteComments(indexBook);
+        }
     }
 }
+
+// function renderFavoriteBookcards() {
+//     // getFromLocalStorage
+//     let contentRef = document.getElementById('content');
+//     contentRef.innerHTML = "";
+//     for (let indexBook = 0; indexBook < favoriteBooks.length; indexBook++) {
+//         contentRef.innerHTML += getFavoriteBookTemplate(indexBook);
+//         renderFavoriteComments(indexBook);
+//     }
+// }
 
 function renderFavoriteComments(indexBook) {
     let currentBookComments = favoriteBooks[indexBook].comments;

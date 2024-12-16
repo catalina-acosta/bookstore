@@ -10,7 +10,8 @@ let books = [
                 { "username": "DuneFan88", "text": "It changed how I think about science fiction." },
                 { "username": "EpicReader", "text": "The political intrigue kept me hooked." }
             ],
-            "img": "assets/img/book_1.jpg"
+            "img": "assets/img/book_1.jpg",
+            "favorite": false
         },
         {
             "title": "The Hobbit",
@@ -23,7 +24,8 @@ let books = [
                 { "username": "AdventureSeeker", "text": "Bilbo's journey is so relatable and inspiring!" },
                 { "username": "FantasyLover", "text": "Perfect for both children and adults." }
             ],
-            "img": "assets/img/book_2.jpg"
+            "img": "assets/img/book_2.jpg",
+            "favorite": false
         },
         {
             "title": "1984",
@@ -36,7 +38,8 @@ let books = [
                 { "username": "DystopiaFan", "text": "A dystopian masterpiece that stays relevant." },
                 { "username": "OrwellianDream", "text": "Orwell's vision is both terrifying and captivating." }
             ],
-            "img": "assets/img/book_3.jpg"
+            "img": "assets/img/book_3.jpg",
+            "favorite": false
         },
         {
             "title": "The Name of the Wind",
@@ -49,7 +52,8 @@ let books = [
                 { "username": "ProseFan", "text": "The prose is poetic yet accessible." },
                 { "username": "EagerReader", "text": "Can't wait for the next installment!" }
             ],
-            "img": "assets/img/book_4.jpg"
+            "img": "assets/img/book_4.jpg",
+            "favorite": false
         },
         {
             "title": "Mistborn: The Final Empire",
@@ -62,7 +66,8 @@ let books = [
                 { "username": "PlotTwistLover", "text": "Sanderson's twists are legendary." },
                 { "username": "EpicAdventure", "text": "Perfect balance of action and character depth." }
             ],
-            "img": "assets/img/book_5.jpg"
+            "img": "assets/img/book_5.jpg",
+            "favorite": false
         },
         {
             "title": "Ender's Game",
@@ -75,7 +80,8 @@ let books = [
                 { "username": "ComplexCharFan", "text": "Ender is such a complex character." },
                 { "username": "PageTurner", "text": "I couldn't put it down until the end." }
             ],
-            "img": "assets/img/book_6.jpg"
+            "img": "assets/img/book_6.jpg",
+            "favorite": false
         },
         {
             "title": "The Wheel of Time: The Eye of the World",
@@ -88,7 +94,8 @@ let books = [
                 { "username": "WorldBuilder", "text": "Jordan's world-building is unmatched." },
                 { "username": "TolkienFan", "text": "Fans of Tolkien will love this." }
             ],
-            "img": "assets/img/book_7.jpg"
+            "img": "assets/img/book_7.jpg",
+            "favorite": false
         },
         {
             "title": "Neuromancer",
@@ -101,7 +108,8 @@ let books = [
                 { "username": "AtmosphereFan", "text": "The gritty atmosphere is unforgettable." },
                 { "username": "FutureVisionary", "text": "Gibson's vision of the future feels prophetic." }
             ],
-            "img": "assets/img/book_1.jpg"
+            "img": "assets/img/book_1.jpg",
+            "favorite": false
         },
         {
             "title": "A Song of Ice and Fire: A Game of Thrones",
@@ -114,7 +122,8 @@ let books = [
                 { "username": "CharacterFan", "text": "Martin's characters feel so real and flawed." },
                 { "username": "RealisticFantasy", "text": "A gritty, realistic take on fantasy." }
             ],
-            "img": "assets/img/book_2.jpg"
+            "img": "assets/img/book_2.jpg",
+            "favorite": false
         },
         {
             "title": "Good Omens",
@@ -127,7 +136,8 @@ let books = [
                 { "username": "IconicDuo", "text": "Crowley and Aziraphale are iconic!" },
                 { "username": "DepthFan", "text": "A comedic gem with plenty of depth." }
             ],
-            "img": "assets/img/book_3.jpg"
+            "img": "assets/img/book_3.jpg",
+            "favorite": false
         },
         {
             "title": "Hyperion",
@@ -140,7 +150,8 @@ let books = [
                 { "username": "StructureFan", "text": "A beautifully complex narrative structure." },
                 { "username": "BrilliantWriter", "text": "Simmons' writing is absolutely brilliant." }
             ],
-            "img": "assets/img/book_4.jpg"
+            "img": "assets/img/book_4.jpg",
+            "favorite": false
         },
         {
             "title": "The Hunger Games",
@@ -153,7 +164,8 @@ let books = [
                 { "username": "GrippingConcept", "text": "The concept is both horrifying and gripping." },
                 { "username": "FastReader", "text": "A page-turner from start to finish." }
             ],
-            "img": "assets/img/book_5.jpg"
+            "img": "assets/img/book_5.jpg",
+            "favorite": false
         },
         {
             "title": "Foundation",
@@ -166,7 +178,8 @@ let books = [
                 { "username": "VisionaryFan", "text": "Asimov's vision of the future is unparalleled." },
                 { "username": "PsychohistoryLover", "text": "Hari Seldon's psychohistory is fascinating." }
             ],
-            "img": "assets/img/book_6.jpg"
+            "img": "assets/img/book_6.jpg",
+            "favorite": false
         },
     {
         "title": "The Martian",
@@ -179,7 +192,8 @@ let books = [
             { "username": "SurvivorFan", "text": "Mark Watney is the ultimate survivor." },
             { "username": "SciFiFanatic", "text": "A must-read for sci-fi fans." }
         ],
-        "img": "assets/img/book_7.jpg"
+        "img": "assets/img/book_7.jpg",
+        "favorite": false
     },
     {
         "title": "Children of Time",
@@ -192,7 +206,8 @@ let books = [
             { "username": "ImaginativeReader", "text": "Tchaikovsky's imagination is breathtaking." },
             { "username": "EvolutionFan", "text": "A fascinating exploration of evolution and survival." }
         ],
-        "img": "assets/img/book_1.jpg"
+        "img": "assets/img/book_1.jpg",
+        "favorite": false
     },
     {
         "title": "The Dark Tower: The Gunslinger",
@@ -205,7 +220,8 @@ let books = [
             { "username": "RolandFan", "text": "Roland's journey is haunting and captivating." },
             { "username": "EpicQuest", "text": "A dark and unforgettable quest story." }
         ],
-        "img": "assets/img/book_2.jpg"
+        "img": "assets/img/book_2.jpg",
+        "favorite": false
     }
 ]
 
