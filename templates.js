@@ -8,8 +8,8 @@ function getBookTemplate(indexBook) {
                     <div class="title-likes">
                         <h2 id="title">${books[indexBook].title}</h2>
                         <div class="likes">
-                            <p>${books[indexBook].likes}</p>
-                            <button id="heartButton" onclick="addLike()"><i class="fa-solid fa-heart"></i></button>
+                            <p id="likesCounter${indexBook}">${books[indexBook].likes}</p>
+                            <button class="heartButton" id="heart${indexBook}" onclick="addLike(${indexBook})"><i class="fa-solid fa-heart"></i></button>
                         </div>
                     </div>
                     <p id="author">Author: <span>${books[indexBook].author}</span></p>
@@ -40,4 +40,10 @@ function getCommentsTemplate(bookComment, userComment) {
                 <div class="comment-div">${bookComment}</div>
             </div>
     `
+}
+
+function getLikesTemplate(indexBook) {
+    return `
+                    <p id="likesCounter">${books[indexBook].likes}</p>
+                    `
 }

@@ -1,7 +1,6 @@
 function init() {
     // getFromLocalStorage();
     renderBookcards();
-    // renderFavoriteBooks();
 }
 
 function renderBookcards() {
@@ -38,6 +37,41 @@ function addComment(indexBook) {
     }
 }
 
+
+function addLike(indexBook) {
+    let heartRef = document.getElementById(`heart${indexBook}`);
+    heartRef.classList.toggle("liked");
+    let likesRef = document.getElementById(`likesCounter${indexBook}`);
+
+    if (heartRef.classList[1] == "liked") {
+        books[indexBook].likes += 1; 
+        likesRef.innerHTML = getLikesTemplate(indexBook);
+        addBookToFavorites(indexBook);
+    } else {
+        books[indexBook].likes -= 1;
+        likesRef.innerHTML = getLikesTemplate(indexBook);
+        removeFromFavorites(indexBook);
+    }
+
+}
+
+function addBookToFavorites(indexBook) {
+    favoriteBooks.push(books[indexBook]);
+}
+
+function removeFromFavorites(indexBook) {
+    favoriteBooks.splice(indexBook, 1);
+}
+
+function renderFavoriteBookcards() {
+    // getFromLocalStorage
+    let contentRef = document.getElementById('content');
+    contentRef.innerHTML = "";
+    for (let indexBook = 0; indexBook < favoriteBooks.length; indexBook++) {
+        contentRef.innerHTML += getBookTemplate(indexBook);
+        renderComments(indexBook);
+    }
+}
 
 // function getErrorMessageTemplate(){
 //     return `
