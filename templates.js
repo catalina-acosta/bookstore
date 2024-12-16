@@ -28,6 +28,7 @@ function getBookTemplate(indexBook) {
                             <input type="text" id="newComment${indexBook}" placeholder="enter new comment" >
                             <button id="AddCommentBtn" onclick="addComment(${indexBook})">add comment</button>
                         </div>
+                        <div id="errorMessage${indexBook}"></div>
                     </div>
                 </div>
             </div>
@@ -84,3 +85,10 @@ return `
         </div>
         `
 }
+
+function getErrorMessageTemplate(){
+    return `
+            <div class="error-message">
+                <p>please enter a comment</p>
+            </div>`
+};
