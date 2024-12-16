@@ -208,3 +208,5 @@ let books = [
         "img": "assets/img/book_2.jpg"
     }
 ]
+
+let favoriteBooks = [];
