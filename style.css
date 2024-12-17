@@ -151,6 +151,10 @@ input {
     color: var(--rose);
 }
 
+#liked {
+    color: var(--rose);
+}
+
 @media(max-width: 672px) {
     nav {
         flex-direction: column;

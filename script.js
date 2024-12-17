@@ -8,8 +8,13 @@ function renderBookcards() {
     let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
     for (let indexBook = 0; indexBook < books.length; indexBook++) {
-        contentRef.innerHTML += getBookTemplate(indexBook);
-        renderComments(indexBook);
+        if(books[indexBook].favorite == true){
+            contentRef.innerHTML += getBookTemplateTrue(indexBook);
+            renderComments(indexBook);
+        } else {
+            contentRef.innerHTML += getBookTemplateFalse(indexBook);
+            renderComments(indexBook);
+        }
     }
 }
 
@@ -41,37 +46,31 @@ function addComment(indexBook) {
 }
 
 // separate functions addToFavorites & removeFromFavorites (the index is different!!!!)
-function addLike(indexBook) {    
-    let likesRef = document.getElementById(`likesCounter${indexBook}`);
-    let numberLikes = likesRef;
-    let heartRef = document.getElementById(`heart${indexBook}`);
-    let heartIcon = heartRef;
-    heartIcon.classList.toggle("liked");
-
-    if (books[indexBook].favorite == true) {
-        books[indexBook].likes -= 1;
-        books[indexBook].favorite = false;
-        numberLikes.innerHTML = getLikesTemplate(indexBook);
-        removeFromFavorites(indexBook);
-        renderFavoriteBookcards();
-    } else {
+function addLike(indexBook) { 
+    if (books[indexBook].favorite == false) {
+        books[indexBook].likes += 1;
         books[indexBook].favorite = true;
-        books[indexBook].likes += 1; 
-        likesRef.innerHTML = getLikesTemplate(indexBook);
         addBookToFavorites(indexBook);
         saveToLocalStorage();
+        renderBookcards();
+    } else {
+        books[indexBook].likes -= 1; 
+        books[indexBook].favorite = false;
+        removeFromFavorites(indexBook)
+        saveToLocalStorage();
+        renderBookcards();
     }
 }
 
 function addBookToFavorites(indexBook) {
     favoriteBooks.push(books[indexBook]);
-
 }
 
 function removeFromFavorites(indexBook) {
-    favoriteBooks.splice(indexBook, 1);
+    let bookNotFavorite = favoriteBooks.splice(indexBook, 1);
+    favoriteBooks.findIndex(() => book.title === bookNotFavorite.title); // compare a key to the value you want to find the index of
     saveToLocalStorage();
-}
+    };
 
 function renderFavoriteBookcards() {
     getFromLocalStorage();
