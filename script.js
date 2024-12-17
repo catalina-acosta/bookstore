@@ -68,8 +68,14 @@ function addBookToFavorites(indexBook) {
 }
 
 function removeFromFavorites(bookName) {
+    for (let index = 0; index < favoriteBooks.length; index++) {
+        if (favoriteBooks[index].title == bookName){
+            favoriteBooks.splice(index, 1);
+        }
+        
+    }
     // let bookNotFavorite = favoriteBooks[bookName];
-    favoriteBooks.findIndex((book) => bookName === favoriteBooks[book]); // compare a key to the value you want to find the index of
+    // favoriteBooks.findIndex((book) => bookName === favoriteBooks[book]); // compare a key to the value you want to find the index of
     // bookNotFavorite = favoriteBooks.splice(indexBook, 1);
     // saveToLocalStorage();
     };
