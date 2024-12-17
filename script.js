@@ -1,7 +1,6 @@
 function init() {
-    renderBookcards();
-    saveToLocalStorage();
     getFromLocalStorage();
+    renderBookcards();
 }
 
 function renderBookcards() {
@@ -16,6 +15,7 @@ function renderBookcards() {
             renderComments(indexBook);
         }
     }
+    // saveToLocalStorage();
 }
 
 function renderComments(indexBook){
@@ -54,9 +54,10 @@ function addLike(indexBook) {
         saveToLocalStorage();
         renderBookcards();
     } else {
+        let bookName = books[indexBook].title;
         books[indexBook].likes -= 1; 
         books[indexBook].favorite = false;
-        removeFromFavorites(indexBook)
+        removeFromFavorites(bookName); // books[indexbook].title
         saveToLocalStorage();
         renderBookcards();
     }
@@ -66,10 +67,11 @@ function addBookToFavorites(indexBook) {
     favoriteBooks.push(books[indexBook]);
 }
 
-function removeFromFavorites(indexBook) {
-    let bookNotFavorite = favoriteBooks.splice(indexBook, 1);
-    favoriteBooks.findIndex(() => book.title === bookNotFavorite.title); // compare a key to the value you want to find the index of
-    saveToLocalStorage();
+function removeFromFavorites(bookName) {
+    // let bookNotFavorite = favoriteBooks[bookName];
+    favoriteBooks.findIndex((book) => bookName === favoriteBooks[book]); // compare a key to the value you want to find the index of
+    // bookNotFavorite = favoriteBooks.splice(indexBook, 1);
+    // saveToLocalStorage();
     };
 
 function renderFavoriteBookcards() {
@@ -105,9 +107,7 @@ function saveToLocalStorage() {
 
 function getFromLocalStorage() {
     let savedBooks = JSON.parse(localStorage.getItem("books"));
-    if (savedBooks === null) {
-        books = [];
-    }   else {
+    if (savedBooks !== null) {
         books = savedBooks;
     }
 
