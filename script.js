@@ -6,6 +6,7 @@ function init() {
 function renderBookcards() {
     let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
+
     for (let indexBook = 0; indexBook < books.length; indexBook++) {
         if(books[indexBook].favorite == true){
             contentRef.innerHTML += getBookTemplateTrue(indexBook);
@@ -19,14 +20,15 @@ function renderBookcards() {
 
 function renderComments(indexBook){
     let currentBookComments = books[indexBook].comments;
-        let commentsUsersRef = document.getElementById("commentsUsers");
-        commentsUsersRef.innerHTML = "";
-        commentsUsersRef.setAttribute('id', indexBook);
-        for (let indexComment = 0; indexComment < currentBookComments.length; indexComment++) {
-            let bookComment = currentBookComments[indexComment].text;
-            let userComment = currentBookComments[indexComment].username;
-            commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
-        }
+    let commentsUsersRef = document.getElementById("commentsUsers");
+    commentsUsersRef.innerHTML = "";
+    commentsUsersRef.setAttribute('id', indexBook);
+
+    for (let indexComment = 0; indexComment < currentBookComments.length; indexComment++) {
+        let bookComment = currentBookComments[indexComment].text;
+        let userComment = currentBookComments[indexComment].username;
+        commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
+    }
 }
 
 function addComment(indexBook) {
@@ -34,8 +36,9 @@ function addComment(indexBook) {
     let newComment = newCommentRef.value;
     let errorMessageRef = document.getElementById(`errorMessage${indexBook}`);
     let errorMessageDiv = errorMessageRef;
+
     if (newComment == ""){
-        errorMessageDiv.innerHTML = getErrorMessageTemplate(); // needs to be styled
+        errorMessageDiv.innerHTML = getErrorMessageTemplate();
     } else {
         let currentBook = books[indexBook];
         currentBook.comments.push({"username": "Cata", "text": newComment});
@@ -55,7 +58,7 @@ function addLike(indexBook) {
         let bookName = books[indexBook].title;
         books[indexBook].likes -= 1; 
         books[indexBook].favorite = false;
-        removeFromFavorites(bookName); // books[indexbook].title
+        removeFromFavorites(bookName); 
         saveToLocalStorage();
         renderBookcards();
     }
@@ -70,13 +73,13 @@ function removeFromFavorites(bookName) {
         if (favoriteBooks[index].title == bookName){
             favoriteBooks.splice(index, 1);
         }
-        
     }
 }
 
 function removeFromFavoritesPage(indexBook){
     let removedBookArray = favoriteBooks.splice(indexBook, 1);
     let removedBook = removedBookArray[0];
+
     for (let index = 0; index < books.length; index++) {
         if (books[index].title == removedBook.title) {
             books[index].favorite = false;
@@ -92,6 +95,7 @@ function renderFavoriteBookcards() {
     getFromLocalStorage();
     let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
+
     for (let indexBook = 0; indexBook < favoriteBooks.length; indexBook++) {
             contentRef.innerHTML += getFavoriteBookTemplate(indexBook);
             renderFavoriteComments(indexBook);
@@ -100,14 +104,15 @@ function renderFavoriteBookcards() {
 
 function renderFavoriteComments(indexBook) {
     let currentBookComments = favoriteBooks[indexBook].comments;
-        let commentsUsersRef = document.getElementById("commentsUsers");
-        commentsUsersRef.innerHTML = "";
-        commentsUsersRef.setAttribute('id', indexBook);
-        for (let indexComment = 0; indexComment < currentBookComments.length; indexComment++) {
-            let bookComment = currentBookComments[indexComment].text;
-            let userComment = currentBookComments[indexComment].username;
-            commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
-        }
+    let commentsUsersRef = document.getElementById("commentsUsers");
+    commentsUsersRef.innerHTML = "";
+    commentsUsersRef.setAttribute('id', indexBook);
+
+    for (let indexComment = 0; indexComment < currentBookComments.length; indexComment++) {
+        let bookComment = currentBookComments[indexComment].text;
+        let userComment = currentBookComments[indexComment].username;
+        commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
+    }
 }
 
 function saveToLocalStorage() {
@@ -117,20 +122,19 @@ function saveToLocalStorage() {
 
 function getFromLocalStorage() {
     let savedBooks = JSON.parse(localStorage.getItem("books"));
+
     if (savedBooks !== null) {
         books = savedBooks;
     }
 
     let savedFavoriteBooks = JSON.parse(localStorage.getItem("favoriteBooks"));
+    
     if (savedFavoriteBooks === null) {
         favoriteBooks = [];
     } else {
         favoriteBooks = savedFavoriteBooks;
     }
 }
-
-
-// clean code
 
 
 

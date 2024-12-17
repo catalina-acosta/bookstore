@@ -39,6 +39,10 @@ nav {
     padding: 0 120px;
 }
 
+nav h1 {
+    letter-spacing: 4px;
+}
+
 button {
     background-color: var(--teal);
     border: none;
