@@ -15,7 +15,6 @@ function renderBookcards() {
             renderComments(indexBook);
         }
     }
-    // saveToLocalStorage();
 }
 
 function renderComments(indexBook){
@@ -45,7 +44,6 @@ function addComment(indexBook) {
     }
 }
 
-// separate functions addToFavorites & removeFromFavorites (the index is different!!!!)
 function addLike(indexBook) { 
     if (books[indexBook].favorite == false) {
         books[indexBook].likes += 1;
@@ -74,11 +72,21 @@ function removeFromFavorites(bookName) {
         }
         
     }
-    // let bookNotFavorite = favoriteBooks[bookName];
-    // favoriteBooks.findIndex((book) => bookName === favoriteBooks[book]); // compare a key to the value you want to find the index of
-    // bookNotFavorite = favoriteBooks.splice(indexBook, 1);
-    // saveToLocalStorage();
-    };
+}
+
+function removeFromFavoritesPage(indexBook){
+    let removedBookArray = favoriteBooks.splice(indexBook, 1);
+    let removedBook = removedBookArray[0];
+    for (let index = 0; index < books.length; index++) {
+        if (books[index].title == removedBook.title) {
+            books[index].favorite = false;
+            books[indexBook].likes -= 1;
+        }
+    }
+    saveToLocalStorage();
+    renderFavoriteBookcards();
+    renderBookcards();
+}
 
 function renderFavoriteBookcards() {
     getFromLocalStorage();
@@ -101,10 +109,6 @@ function renderFavoriteComments(indexBook) {
             commentsUsersRef.innerHTML += getCommentsTemplate(bookComment, userComment);
         }
 }
-
-// TODO'S 
-
-// implement local storage
 
 function saveToLocalStorage() {
     localStorage.setItem("books", JSON.stringify(books));

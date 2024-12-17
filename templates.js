@@ -92,7 +92,7 @@ return `
                     <h2 id="title">${favoriteBooks[indexBook].title}</h2>
                     <div class="likes">
                         <p id="likesCounter${indexBook}">${favoriteBooks[indexBook].likes}</p>
-                        <button class="heartButton liked" id="heart${indexBook}" onclick="addLike(${indexBook})"><i class="fa-solid fa-heart"></i></button>
+                        <button class="heartButton liked" id="heart${indexBook}" onclick="removeFromFavoritesPage(${indexBook})"><i class="fa-solid fa-heart"></i></button>
                     </div>
                 </div>
                 <p id="author">Author: <span>${favoriteBooks[indexBook].author}</span></p>
